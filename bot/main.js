@@ -1,8 +1,13 @@
-const { Client, Intents, Message } = require('discord.js');
+//Creating Objects from discord.js //copy Paste
+const { Client, Intents, Message, Attachment, Guild } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
+
+const { MessageEmbed } = require('discord.js');
+
+const { Permissions } = require('discord.js');
 
 client.once('ready', () => {
 
@@ -44,33 +49,75 @@ else if(thisnum ===10) return joke9
 
 
 }
+//Courotine FUnction
+
+
+
+
+//Courooutin function
+
+//Embed
+
+
+// inside a command, event listener, etc.
+const githubembed = new MessageEmbed()
+	githubembed.setColor('#FF0000')
+	githubembed.setTitle('Git Hub')
+	githubembed.setURL('https://github.com/')
+	githubembed.setDescription('You can put your code here if you want and have a version control')
+	githubembed.setThumbnail('https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_505df21738edbe9baababa9d60be291d/github.png')
+	githubembed.addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_505df21738edbe9baababa9d60be291d/github.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_505df21738edbe9baababa9d60be291d/github.png');
+    
+
+
+
+
+//Embed
 
 client.on("message", msg =>{
-if(msg.content === "Hi" && !msg.author.bot)
- msg.reply("Hello");
+if(msg.content === "/Hi" && !msg.author.bot)
+
+msg.react("👍");
+
+msg.channel.send("Hello "+"<@" + msg.author.id + ">");
 
 
-
-
-
-
-
-if(msg.content ==="Tell Me A Joke" && !msg.author.bot)
-
+if(msg.content ==="/Tell Me A Joke" && !msg.author.bot)
 
 
 msg.reply(generatearandomjoke());
 
 
-if(msg.content === "Who Am I"  && !msg.author.bot)
+if(msg.content === "/Who Am I"  && !msg.author.bot)
 msg.channel.send("Your Tag: " + msg.author.tag + ' ' + " Your Id: " + msg.author.id)
 
 
-if(msg.content === "Ping"  && !msg.author.bot)
+if(msg.content === "/Ping"  && !msg.author.bot)
 
     msg.author.send("Pong");
 
+if(msg.content === "Play" && !msg.author.bot)
+msg.channel.send("Wanna Play Chess With Why "+"<@" + "739626391825285190"+">");
 
+if((msg.content === "/git hub") && !msg.author.bot)
+msg.channel.send({ embeds: [githubembed] });
+
+if(msg.content === "Youtube" && !msg.author.bot)
+msg.channel.send("http://youtube.com//");
+
+if(msg.content === '/git' && !msg.author.bot)
+msg.channel.send('https://avatars.githubusercontent.com/u/18133?s=200&v=4');
+if(msg.content === '/createmodrole' && !msg.author.bot)
+msg.guild.roles.create({ name: 'Mod', permissions: [Permissions.FLAGS.MANAGE_MESSAGES, Permissions.FLAGS.KICK_MEMBERS] });
 })
 
 
