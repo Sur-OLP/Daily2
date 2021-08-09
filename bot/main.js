@@ -83,43 +83,87 @@ const githubembed = new MessageEmbed()
 
 //Embed
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ON event function
+//Current event is on each message
+
 client.on("message", msg =>{
-if(msg.content === "/Hi" && !msg.author.bot)
 
-msg.react("👍");
-
-msg.channel.send("Hello "+"<@" + msg.author.id + ">");
+	let a = msg.content.toString();
+	a = a.toLowerCase();
 
 
-if(msg.content ==="/Tell Me A Joke" && !msg.author.bot)
+if(a === "/hi" && !msg.author.bot)
+{
+	
+	msg.channel.send("Hello "+"<@" + msg.author.id + ">");
+	
+}
+if(a === "/react" && !msg.author.bot)
+{
+	msg.react("👍");
+
+	
+}
+
+
+if(a === "/addadmin" && !msg.author.bot)
+{
+	msg.member.roles.add('874359274229354537')
+	
+	
+}
+
+
+
+
+
+if(a ==="/tell me a joke" && !msg.author.bot)
 
 
 msg.reply(generatearandomjoke());
 
 
-if(msg.content === "/Who Am I"  && !msg.author.bot)
+if(a === "/who am i"  && !msg.author.bot)
 msg.channel.send("Your Tag: " + msg.author.tag + ' ' + " Your Id: " + msg.author.id)
 
 
-if(msg.content === "/Ping"  && !msg.author.bot)
+if(a === "/ping"  && !msg.author.bot)
 
     msg.author.send("Pong");
 
-if(msg.content === "Play" && !msg.author.bot)
+if(a === "play" && !msg.author.bot)
 msg.channel.send("Wanna Play Chess With Why "+"<@" + "739626391825285190"+">");
 
-if((msg.content === "/git hub") && !msg.author.bot)
+if((a === "/git hub") && !msg.author.bot)
 msg.channel.send({ embeds: [githubembed] });
 
-if(msg.content === "Youtube" && !msg.author.bot)
+if(a === "youtube" && !msg.author.bot)
 msg.channel.send("http://youtube.com//");
 
-if(msg.content === '/git' && !msg.author.bot)
+if(a === '/git' && !msg.author.bot)
 msg.channel.send('https://avatars.githubusercontent.com/u/18133?s=200&v=4');
-if(msg.content === '/createmodrole' && !msg.author.bot)
+if(a === '/createmodrole' && !msg.author.bot)
 msg.guild.roles.create({ name: 'Mod', permissions: [Permissions.FLAGS.MANAGE_MESSAGES, Permissions.FLAGS.KICK_MEMBERS] });
 })
 
 
 
+
+//Token
+
 client.login('ODc0MDA4NjkyMzEwMjgyMjQw.YRAuBg.mAwLqMcbv4RYRwdLs0P1MbQ7Om0')
+//Token
