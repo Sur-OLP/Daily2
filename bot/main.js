@@ -95,14 +95,12 @@ const githubembed = new MessageEmbed()
 
 
 
-
-
 //ON event function
 //Current event is on each message
 
 client.on("message", msg =>{
 
-
+//so basically it first converts it into a string, and then lower cases the message and if it matches the if statment then the code will run.
 if(msg.content.toString().toLowerCase() === "/hi" && !msg.author.bot)
 {
 	
@@ -142,25 +140,68 @@ if(msg.content.toString().toLowerCase() === "/ping"  && !msg.author.bot)
 
     msg.author.send("Pong");
 
-if(msg.content.toString().toLowerCase() === "play" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/play" && !msg.author.bot)
 msg.channel.send("Wanna Play Chess With Why "+"<@" + "739626391825285190"+">");
 
 if((msg.content.toString().toLowerCase() === "/git hub") && !msg.author.bot)
 msg.channel.send({ embeds: [githubembed] });
 
-if(msg.content.toString().toLowerCase() === "youtube" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/youtube" && !msg.author.bot)
 msg.channel.send("http://youtube.com//");
 
 if(msg.content.toString().toLowerCase() === '/git' && !msg.author.bot)
 msg.channel.send('https://avatars.githubusercontent.com/u/18133?s=200&v=4');
 if(msg.content.toString().toLowerCase() === '/createmodrole' && !msg.author.bot)
 msg.guild.roles.create({ name: 'Mod', permissions: [Permissions.FLAGS.MANAGE_MESSAGES, Permissions.FLAGS.KICK_MEMBERS] });
+
+
+
+if(msg.content.toString().toLowerCase() === "/kick me" && !msg.author.bot){
+
+
+msg.member.kick();
+
+
+
+}
+
+
+if(msg.content.toString().toLowerCase() === "/ban me"){
+
+msg.member.ban();
+
+}
+
+
+
+if(msg.content.toString().toLowerCase().includes("/name") ){
+
+	let toslicecontent = msg.content.toString().toLowerCase();
+	let newcontent = toslicecontent.slice(6);
+
+ msg.channel.send("Hello " + newcontent);
+ 
+	
+}
+
+
+
+
+//Lists of commands
+
+if(msg.content.toString().toLowerCase() === "/help"){
+
+	msg.channel.send("Command 1:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me");
+
+	
+	}
+
 })
 
 
 
 
-//Token
+//Token 
 
 client.login('ODc0MDA4NjkyMzEwMjgyMjQw.YRAuBg.mAwLqMcbv4RYRwdLs0P1MbQ7Om0')
 //Token
