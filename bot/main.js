@@ -102,17 +102,14 @@ const githubembed = new MessageEmbed()
 
 client.on("message", msg =>{
 
-	let a = msg.content.toString();
-	a = a.toLowerCase();
 
-
-if(a === "/hi" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/hi" && !msg.author.bot)
 {
 	
 	msg.channel.send("Hello "+"<@" + msg.author.id + ">");
 	
 }
-if(a === "/react" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/react" && !msg.author.bot)
 {
 	msg.react("👍");
 
@@ -120,7 +117,7 @@ if(a === "/react" && !msg.author.bot)
 }
 
 
-if(a === "/addadmin" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/addadmin" && !msg.author.bot)
 {
 	msg.member.roles.add('874359274229354537')
 	
@@ -131,32 +128,32 @@ if(a === "/addadmin" && !msg.author.bot)
 
 
 
-if(a ==="/tell me a joke" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() ==="/tell me a joke" && !msg.author.bot)
 
 
 msg.reply(generatearandomjoke());
 
 
-if(a === "/who am i"  && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/who am i"  && !msg.author.bot)
 msg.channel.send("Your Tag: " + msg.author.tag + ' ' + " Your Id: " + msg.author.id)
 
 
-if(a === "/ping"  && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "/ping"  && !msg.author.bot)
 
     msg.author.send("Pong");
 
-if(a === "play" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "play" && !msg.author.bot)
 msg.channel.send("Wanna Play Chess With Why "+"<@" + "739626391825285190"+">");
 
-if((a === "/git hub") && !msg.author.bot)
+if((msg.content.toString().toLowerCase() === "/git hub") && !msg.author.bot)
 msg.channel.send({ embeds: [githubembed] });
 
-if(a === "youtube" && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === "youtube" && !msg.author.bot)
 msg.channel.send("http://youtube.com//");
 
-if(a === '/git' && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === '/git' && !msg.author.bot)
 msg.channel.send('https://avatars.githubusercontent.com/u/18133?s=200&v=4');
-if(a === '/createmodrole' && !msg.author.bot)
+if(msg.content.toString().toLowerCase() === '/createmodrole' && !msg.author.bot)
 msg.guild.roles.create({ name: 'Mod', permissions: [Permissions.FLAGS.MANAGE_MESSAGES, Permissions.FLAGS.KICK_MEMBERS] });
 })
 
