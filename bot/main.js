@@ -191,7 +191,7 @@ if(msg.content.toString().toLowerCase().includes("/name" && !msg.author.bot) ){
 
 if(msg.content.toString().toLowerCase() === "/guild count"  && !msg.author.bot){
 
-	msg.channel.send(msg.guild.memberCount.toString());
+	msg.channel.send(`${msg.guild.memberCount}`);
 
 
 	
