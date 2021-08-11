@@ -1,5 +1,5 @@
 //Creating Objects from discord.js //copy Paste
-const { Client, Intents, Message, Attachment, Guild } = require('discord.js');
+const { Client, Intents, Message, Attachment, Guild, DiscordAPIError } = require('discord.js');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
@@ -49,13 +49,6 @@ else if(thisnum ===10) return joke9
 
 
 }
-//Courotine FUnction
-
-
-
-
-//Courooutin function
-
 //Embed
 
 
@@ -99,6 +92,7 @@ const githubembed = new MessageEmbed()
 //Current event is on each message
 
 client.on("message", msg =>{
+
 
 //so basically it first converts it into a string, and then lower cases the message and if it matches the if statment then the code will run.
 if(msg.content.toString().toLowerCase() === "/hi" && !msg.author.bot)
@@ -166,15 +160,22 @@ msg.member.kick();
 }
 
 
-if(msg.content.toString().toLowerCase() === "/ban me"){
-
+if(msg.content.toString().toLowerCase() === "/ban me" && !msg.author.bot){
+try{
 msg.member.ban();
+}catch(err){
+
+
+
+msg.channel.send("Error")
+
+}
 
 }
 
 
 
-if(msg.content.toString().toLowerCase().includes("/name") ){
+if(msg.content.toString().toLowerCase().includes("/name" && !msg.author.bot) ){
 
 	let toslicecontent = msg.content.toString().toLowerCase();
 	let newcontent = toslicecontent.slice(6);
@@ -187,11 +188,21 @@ if(msg.content.toString().toLowerCase().includes("/name") ){
 
 
 
+
+if(msg.content.toString().toLowerCase() === "/guild count"  && !msg.author.bot){
+
+	msg.channel.send(msg.guild.memberCount.toString());
+
+
+	
+	}
+	
+
 //Lists of commands
 
-if(msg.content.toString().toLowerCase() === "/help"){
+if(msg.content.toString().toLowerCase() === "/help" && !msg.author.bot){
 
-	msg.channel.send("Command 1:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me");
+	msg.channel.send("Command 1:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me \n /name \n /guild count");
 
 	
 	}
@@ -199,9 +210,28 @@ if(msg.content.toString().toLowerCase() === "/help"){
 })
 
 
+//Function ends here
+
+
+//ON event function
+client.on("guildMemberAdd", (member) => {
+	
+
+
+
+	msg.channel.send(`${interaction.guild.memberCount}`)
+
+})
+
+
+
+//ON event function
+
+
+
 
 
 //Token 
 
-client.login('ODc0MDA4NjkyMzEwMjgyMjQw.YRAuBg.mAwLqMcbv4RYRwdLs0P1MbQ7Om0')
+client.login('ODc0MDA4NjkyMzEwMjgyMjQw.YRAuBg.kREEL8pY1QNRqG7-08XAX70MpQQ')
 //Token
