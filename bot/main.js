@@ -14,12 +14,18 @@ const weather = require('weather-js');
 
 
 
-
 client.once('ready', () => {
 
 console.log("The Bot is online and running");
 
 })
+
+
+
+
+
+
+
 let  joke = "Which bear is the most condescending? A pan-duh!"
 let  joke1  = "What kind of noise does a witch’s vehicle make? Brrrroooom, brrroooom."
 let joke2 = "What’s brown and sticky? A stick."

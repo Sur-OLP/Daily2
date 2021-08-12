@@ -1,18 +1,16 @@
-function a(){
+function thisrunsanotherfunction(func){
+
+func();
 
 
-
-
-
-console.log("Hello")
 
 }
 
 
-function b(){
-    
-    
-    this.a();
-}
+thisrunsanotherfunction(() => {
 
-b();
+
+
+
+    console.log("Hello!");
+})
