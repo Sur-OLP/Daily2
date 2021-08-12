@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.0.1",
-    "give-me-a-joke": "^0.5.1"
+    "give-me-a-joke": "^0.5.1",
+    "weather": "^1.0.4",
+    "weather-js": "^2.0.0"
   }
 }

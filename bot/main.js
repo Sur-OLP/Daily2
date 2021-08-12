@@ -8,6 +8,12 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const { MessageEmbed } = require('discord.js');
 
 const { Permissions } = require('discord.js');
+const Weather = require('weather');
+const weather = require('weather-js');
+
+
+
+
 
 client.once('ready', () => {
 
@@ -77,7 +83,28 @@ const githubembed = new MessageEmbed()
 //Embed
 
 
+//embed
 
+
+const exampleEmbed = new MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/AfFp7pu.png', 'https://discord.js.org')
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+	.addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://i.imgur.com/AfFp7pu.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://i.imgur.com/AfFp7pu.png');
+
+//embed
 
 
 
@@ -175,7 +202,7 @@ msg.channel.send("Error")
 
 
 
-if(msg.content.toString().toLowerCase().includes("/name" && !msg.author.bot) ){
+if(msg.content.toString().toLowerCase().includes("/name") && !msg.author.bot) {
 
 	let toslicecontent = msg.content.toString().toLowerCase();
 	let newcontent = toslicecontent.slice(6);
@@ -196,18 +223,36 @@ if(msg.content.toString().toLowerCase() === "/guild count"  && !msg.author.bot){
 
 	
 	}
-	
+
+	if(msg.content.toString().toLowerCase() === "/weather"  && !msg.author.bot){
+
+
+
+		weather.find({search: 'San Francisco, CA', degreeType: 'F'}, function(err, result) {
+			if(err) console.log(err);
+			else
+			msg.channel.send(result.toString());
+			
+
+		  });
+
+ 
+
+
+
+}
 
 //Lists of commands
 
 if(msg.content.toString().toLowerCase() === "/help" && !msg.author.bot){
 
-	msg.channel.send("Command 1:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me \n /name \n /guild count");
+	msg.channel.send("Commands:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me \n /name \n /guild count");
 
 	
 	}
 
 })
+
 
 
 //Function ends here
