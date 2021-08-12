@@ -224,29 +224,26 @@ if(msg.content.toString().toLowerCase() === "/guild count"  && !msg.author.bot){
 	
 	}
 
-	if(msg.content.toString().toLowerCase() === "/weather"  && !msg.author.bot){
 
 
 
-		weather.find({search: 'San Francisco, CA', degreeType: 'F'}, function(err, result) {
-			if(err) console.log(err);
-			else
-			msg.channel.send(result.toString());
-			
+	if(msg.content.toString().toLowerCase() === "/where am i"  && !msg.author.bot){
 
-		  });
-
- 
-
+		msg.channel.send(`You are in <#${msg.channel.id}>`);
+	
+	
+		
+		}
+	
 
 
-}
+
 
 //Lists of commands
 
 if(msg.content.toString().toLowerCase() === "/help" && !msg.author.bot){
 
-	msg.channel.send("Commands:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me \n /name \n /guild count");
+	msg.channel.send("Commands:\n /hi \n /react \n /addadmin \n /tell me a joke \n /ping \n /play \n /git hub \n /youtube \n /git \n /kick me \n /ban me \n /name \n /guild count \n /where am i ");
 
 	
 	}
@@ -258,7 +255,7 @@ if(msg.content.toString().toLowerCase() === "/help" && !msg.author.bot){
 //Function ends here
 
 
-//ON event function
+//ON event function``
 client.on("guildMemberAdd", (member) => {
 	
 
